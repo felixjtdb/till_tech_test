@@ -1,8 +1,15 @@
 require 'till.rb'
 
 describe Till do
-  it 'Given a name of an item and return a price' do
-    till = Till.new
+  let(:till) { Till.new }
+
+  it 'Given a name of an item, returns a price' do
     expect(till.prices['Cafe Latte']).to eq(4.75)
+  end
+
+  describe '#quantityPriceCalculator' do
+    it 'Given item and quantity, returns total price' do
+      expect(till.quantityPriceCalculator('Cafe Latte', 3)).to eq(4.75 * 3)
+    end
   end
 end

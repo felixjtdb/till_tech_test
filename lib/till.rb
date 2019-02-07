@@ -7,4 +7,8 @@ class Till
     @shopName = shopInfo["shopName"]
     @prices = shopInfo["prices"]
   end
+
+  def quantityPriceCalculator(itemName, quantity)
+    return @prices[itemName] * quantity
+  end
 end
