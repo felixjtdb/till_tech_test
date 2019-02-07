@@ -1,4 +1,5 @@
 require 'till.rb'
+HIPSTER_TAX =  0.0864
 
 describe Till do
   let(:till) { Till.new }
@@ -16,6 +17,14 @@ describe Till do
   describe '#addToTotal' do
     it 'Given item and quantity, increases total' do
       expect{ till.addToTotal('Cafe Latte', 1) }.to change{ till.total }.by(4.75)
+    end
+  end
+
+  describe '#calculateTax' do
+    it 'Returns total * tax' do
+      test_till = Till.new
+      test_till.addToTotal('Cafe Latte', 10) # 10 * 4.75 = 47.5
+      expect(test_till.calculateTax).to eq(47.5 * HIPSTER_TAX)
     end
   end
 end
