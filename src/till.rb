@@ -1,3 +1,0 @@
-class Till
-
-end
