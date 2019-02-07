@@ -12,4 +12,10 @@ describe Till do
       expect(till.quantityPriceCalculator('Cafe Latte', 3)).to eq(4.75 * 3)
     end
   end
+
+  describe '#addToTotal' do
+    it 'Given item and quantity, increases total' do
+      expect{ till.addToTotal('Cafe Latte', 1) }.to change{ till.total }.by(4.75)
+    end
+  end
 end
